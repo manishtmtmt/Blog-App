@@ -72,6 +72,7 @@ export const BlogAuthor = (props) => {
 const Blog = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
+  const userId = getData("userId")
 
   const { blogId } = useParams();
   const dispatch = useDispatch();
@@ -162,7 +163,7 @@ const Blog = () => {
             </Box>
             <Flex justify="space-between" align="center">
               <BlogTags tags={blog.category} marginTop="3" />
-              {isAuth === "true" ? (
+              {userId === blog.userId ? (
                 <Menu>
                   <MenuButton
                     as={IconButton}
