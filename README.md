@@ -25,11 +25,11 @@ Hello guys,
    
  * Back-End
  
-  * ExpressJs
-  * NodeJs
-  * Mongoose
-  * MongoDB
-  * Cloudinary
+  - ExpressJs
+  - NodeJs
+  - Mongoose
+  - MongoDB
+  - Cloudinary
   
 ## Deployment done on:
 
