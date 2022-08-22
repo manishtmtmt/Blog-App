@@ -23,13 +23,13 @@ Hello guys,
     - Axios
     - Chakra-ui
    
- * Back-End
+* Back-End
  
-  - ExpressJs
-  - NodeJs
-  - Mongoose
-  - MongoDB
-  - Cloudinary
+    - ExpressJs
+    - NodeJs
+    - Mongoose
+    - MongoDB
+    - Cloudinary
   
 ## Deployment done on:
 
