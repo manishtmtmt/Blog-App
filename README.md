@@ -4,6 +4,9 @@ Hello guys,
   I have made a blog app, where you can add your daily blogs, and posts. This app is very easy to use. You can read any blog. You can also create your own blog but for 
   creating a blog you need to singup to the site. Once successfully login, you can create your blog, read your blog, update your blog and delete then if you want.
  
+ ## Visit site
+ 
+ https://manisht-first-blog-app.netlify.app/
  
 ## Programming Tools used: 
 
@@ -15,13 +18,15 @@ Hello guys,
     - CSS3
     - JavaScript
     
-  * Library used
+  * Library and tools
   
-    - React
-    - Redux
-    - React-Router-Dom
-    - Axios
-    - Chakra-ui
+    - React (18.2.0)
+    - Redux (4.2.0)
+    - React-redux (8.0.2)
+    - React-router-dom (6.3.0)
+    - Redux-thunk (2.4.1)
+    - Axios (0.27.2)
+    - Chakra-ui (2.2.8)
    
 * Back-End
  
@@ -35,6 +40,14 @@ Hello guys,
 
   * Netlify (Front-end)
   * Heroku (Back-end)
+  
+## Features and functionalities
+
+- Sign-up/sign-in
+- Views blogs
+- Create blog
+- Update/delete blog
+- User-blog relation
   
 ## Some screenshots of my projects: 
 
