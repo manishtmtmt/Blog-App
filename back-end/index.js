@@ -13,11 +13,7 @@ const fileUpload = require("express-fileupload");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://manisht-first-blog-app.netlify.app"],
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 
@@ -28,8 +24,8 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Backend server api")
-})
+  res.send("Welcome to Backend server api");
+});
 
 app.use("/auth", authRouter);
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -72,15 +73,18 @@ export const BlogAuthor = (props) => {
 const Blog = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
-  const userId = getData("userId")
-
   const { blogId } = useParams();
-  const dispatch = useDispatch();
-  const [blogData, setBlogData] = useState({});
+  const userId = getData("userId");
 
   const { blog } = useSelector((state) => state.appReducer);
+  const dispatch = useDispatch();
+  const [blogData, setBlogData] = useState({
+    title: blog.title,
+    category: blog.category,
+    description: blog.description,
+  });
+
   const { isLoading } = useSelector((state) => state.appReducer);
-  const isAuth = getData("isAuth");
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -97,8 +101,7 @@ const Blog = () => {
     }
   };
 
-  const handleUpdate = async (e) => {
-    e.preventDefault();
+  const handleUpdate = async () => {
     await dispatch(updateBlog(blogId, blogData)).then((res) => {
       if (res.status === UPDATE_BLOG_SUCCESS) {
         alert(res.message);
@@ -123,10 +126,7 @@ const Blog = () => {
 
   useEffect(() => {
     dispatch(getBlog(blogId));
-    blogData.title = blog.title;
-    blogData.category = blog.category;
-    blogData.description = blog.description;
-  }, [blog.category, blog.description, blog.title, blogId, dispatch, blogData]);
+  }, [blogId]);
 
   return (
     <>

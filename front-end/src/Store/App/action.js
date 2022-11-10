@@ -6,16 +6,12 @@ export const createBlog = (params, payload) => (dispatch) => {
   const token = getData("token");
   dispatch({ type: types.CREATE_BLOG_REQUEST });
   return axios
-    .post(
-      `https://manisht-first-blog-app.herokuapp.com/blog/create/${params}`,
-      payload,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    .post(`http://localhost:8800/blog/create/${params}`, payload, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        authorization: `Bearer ${token}`,
+      },
+    })
     .then((res) => {
       dispatch({ type: types.CREATE_BLOG_SUCCESS, payload: res.data.message });
       return { status: types.CREATE_BLOG_SUCCESS, payload: res.data.message };
@@ -35,7 +31,7 @@ export const createBlog = (params, payload) => (dispatch) => {
 export const getBlogs = (payload) => (dispatch) => {
   dispatch({ type: types.GET_BLOGS_REQUEST });
   return axios
-    .get("https://manisht-first-blog-app.herokuapp.com/blogs")
+    .get("http://localhost:8800/blogs")
     .then((r) => {
       dispatch({ type: types.GET_BLOGS_SUCCESS, payload: r.data });
       return { status: types.GET_BLOGS_SUCCESS, message: r.data.message };
@@ -55,7 +51,7 @@ export const getBlogs = (payload) => (dispatch) => {
 export const getBlog = (params) => (dispatch) => {
   dispatch({ type: types.GET_BLOG_REQUEST });
   return axios
-    .get(`https://manisht-first-blog-app.herokuapp.com/blog/${params}`)
+    .get(`http://localhost:8800/blog/${params}`)
     .then((r) => {
       dispatch({ type: types.GET_BLOG_SUCCESS, payload: r.data });
       return { status: types.GET_BLOG_SUCCESS, message: r.data.message };
@@ -75,7 +71,7 @@ export const getBlog = (params) => (dispatch) => {
 export const getUserBlogs = (params) => (dispatch) => {
   dispatch({ type: types.GET_BLOG_REQUEST });
   return axios
-    .get(`https://manisht-first-blog-app.herokuapp.com/blogs/${params}`)
+    .get(`http://localhost:8800/blogs/${params}`)
     .then((r) => {
       dispatch({ type: types.GET_USER_BLOGS_SUCCESS, payload: r.data });
       return { status: types.GET_USER_BLOGS_SUCCESS, message: r.data.message };
@@ -96,16 +92,12 @@ export const updateBlog = (params, payload) => (dispatch) => {
   const token = getData("token");
   dispatch({ type: types.UPDATE_BLOG_REQUEST });
   return axios
-    .patch(
-      `https://manisht-first-blog-app.herokuapp.com/blog/${params}`,
-      payload,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    .patch(`http://localhost:8800/blog/${params}`, payload, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        authorization: `Bearer ${token}`,
+      },
+    })
     .then((r) => {
       dispatch({ type: types.UPDATE_BLOG_SUCCESS, payload: r.data.message });
       return { status: types.UPDATE_BLOG_SUCCESS, message: r.data.message };
@@ -126,7 +118,7 @@ export const deleteBlog = (params) => (dispatch) => {
   const token = getData("token");
   dispatch({ type: types.DELETE_BLOG_REQUEST });
   return axios
-    .delete(`https://manisht-first-blog-app.herokuapp.com/blog/${params}`, {
+    .delete(`http://localhost:8800/blog/${params}`, {
       headers: {
         authorization: `Bearer ${token}`,
       },
