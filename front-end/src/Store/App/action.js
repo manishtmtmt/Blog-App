@@ -6,7 +6,7 @@ export const createBlog = (params, payload) => (dispatch) => {
   const token = getData("token");
   dispatch({ type: types.CREATE_BLOG_REQUEST });
   return axios
-    .post(`http://localhost:8800/blog/create/${params}`, payload, {
+    .post(`https://myblogapp.herokuapp.com/blog/create/${params}`, payload, {
       headers: {
         "Content-Type": "multipart/form-data",
         authorization: `Bearer ${token}`,
@@ -31,7 +31,7 @@ export const createBlog = (params, payload) => (dispatch) => {
 export const getBlogs = (payload) => (dispatch) => {
   dispatch({ type: types.GET_BLOGS_REQUEST });
   return axios
-    .get("http://localhost:8800/blogs")
+    .get("https://myblogapp.herokuapp.com/blogs")
     .then((r) => {
       dispatch({ type: types.GET_BLOGS_SUCCESS, payload: r.data });
       return { status: types.GET_BLOGS_SUCCESS, message: r.data.message };
@@ -51,7 +51,7 @@ export const getBlogs = (payload) => (dispatch) => {
 export const getBlog = (params) => (dispatch) => {
   dispatch({ type: types.GET_BLOG_REQUEST });
   return axios
-    .get(`http://localhost:8800/blog/${params}`)
+    .get(`https://myblogapp.herokuapp.com/blog/${params}`)
     .then((r) => {
       dispatch({ type: types.GET_BLOG_SUCCESS, payload: r.data });
       return { status: types.GET_BLOG_SUCCESS, message: r.data.message };
@@ -71,7 +71,7 @@ export const getBlog = (params) => (dispatch) => {
 export const getUserBlogs = (params) => (dispatch) => {
   dispatch({ type: types.GET_BLOG_REQUEST });
   return axios
-    .get(`http://localhost:8800/blogs/${params}`)
+    .get(`https://myblogapp.herokuapp.com/blogs/${params}`)
     .then((r) => {
       dispatch({ type: types.GET_USER_BLOGS_SUCCESS, payload: r.data });
       return { status: types.GET_USER_BLOGS_SUCCESS, message: r.data.message };
@@ -92,7 +92,7 @@ export const updateBlog = (params, payload) => (dispatch) => {
   const token = getData("token");
   dispatch({ type: types.UPDATE_BLOG_REQUEST });
   return axios
-    .patch(`http://localhost:8800/blog/${params}`, payload, {
+    .patch(`https://myblogapp.herokuapp.com/blog/${params}`, payload, {
       headers: {
         "Content-Type": "multipart/form-data",
         authorization: `Bearer ${token}`,
@@ -118,7 +118,7 @@ export const deleteBlog = (params) => (dispatch) => {
   const token = getData("token");
   dispatch({ type: types.DELETE_BLOG_REQUEST });
   return axios
-    .delete(`http://localhost:8800/blog/${params}`, {
+    .delete(`https://myblogapp.herokuapp.com/blog/${params}`, {
       headers: {
         authorization: `Bearer ${token}`,
       },
